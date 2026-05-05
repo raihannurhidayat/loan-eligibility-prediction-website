@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -33,19 +34,21 @@ export default function RootLayout({
       className={plus_jakarta_sans.className}
     >
       <body>
-        <TooltipProvider delayDuration={300}>
-          {children}
-          <Toaster
-            position="top-right"
-            richColors
-            closeButton
-            toastOptions={{
-              style: {
-                fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
-              },
-            }}
-          />
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider delayDuration={300}>
+            {children}
+            <Toaster
+              position="top-right"
+              richColors
+              closeButton
+              toastOptions={{
+                style: {
+                  fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
+                },
+              }}
+            />
+          </TooltipProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

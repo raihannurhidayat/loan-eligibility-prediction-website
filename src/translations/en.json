@@ -1,0 +1,152 @@
+{
+  "common": {
+    "appName": "LoanCheck",
+    "reset": "Reset",
+    "submit": "Predict Loan",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "header": {
+    "apiStatus": "API Status",
+    "apiOnline": "API Online",
+    "apiOffline": "API Offline"
+  },
+  "hero": {
+    "title": "Loan Eligibility Prediction",
+    "description": "Predict your loan eligibility using machine learning. Enter your financial details below to get a prediction."
+  },
+  "form": {
+    "labels": {
+      "accountBalance": "Account Balance",
+      "durationOfCredit": "Duration of Credit",
+      "valueSavingsStocks": "Value of Savings / Stocks",
+      "creditAmount": "Credit Amount",
+      "ageInYears": "Age (Years)",
+      "numberOfExistingCredits": "Number of Existing Credits",
+      "employmentSince": "Employment Since",
+      "foreignWorker": "Foreign Worker",
+      "installmentRate": "Installment Rate",
+      "maritalStatus": "Marital Status",
+      "numberOfDependents": "Number of Dependents",
+      "jobStatus": "Job Status",
+      "propertyMagnitude": "Property Magnitude",
+      "otherPartyDebt": "Other Party Debt",
+      "housingStatus": "Housing Status",
+      "yearsAtCurrentAddress": "Years at Current Address"
+    },
+    "placeholders": {
+      "durationOfCredit": "e.g. 18",
+      "creditAmount": "e.g. 2000",
+      "ageInYears": "e.g. 35",
+      "numberOfExistingCredits": "e.g. 2",
+      "installmentRate": "e.g. 4",
+      "numberOfDependents": "e.g. 1",
+      "yearsAtCurrentAddress": "e.g. 3"
+    },
+    "units": {
+      "months": "months",
+      "dm": "DM",
+      "percentage": "%"
+    },
+    "descriptions": {
+      "accountBalance": "Status of the applicant's checking account based on current balance.",
+      "durationOfCredit": "Requested loan repayment period in months.",
+      "valueSavingsStocks": "Total value of applicant's savings accounts and/or stock holdings.",
+      "creditAmount": "Total loan amount being requested by the applicant.",
+      "ageInYears": "Applicant's age in years at the time of application.",
+      "numberOfExistingCredits": "Number of active credit accounts held by the applicant.",
+      "employmentSince": "Years the applicant has been in current employment position.",
+      "foreignWorker": "Whether the applicant is a foreign worker or national resident.",
+      "installmentRate": "Ratio of monthly installment to annual disposable income.",
+      "maritalStatus": "Current marital status of the applicant.",
+      "numberOfDependents": "Number of dependents for tax purposes.",
+      "jobStatus": "Classification of applicant's employment status.",
+      "propertyMagnitude": "Applicant's home ownership and property value classification.",
+      "otherPartyDebt": "Whether applicant is guarantor for another person's debt.",
+      "housingStatus": "Current housing tenure status (rent, own, free).",
+      "yearsAtCurrentAddress": "Length of time applicant has resided at current address."
+    },
+    "options": {
+      "accountBalance": {
+        "1": "1 — Negative (< 0 DM)",
+        "2": "2 — Low (0 – 200 DM)",
+        "3": "3 — Stable (≥ 200 DM / Salary)",
+        "4": "4 — No Account"
+      },
+      "valueSavingsStocks": {
+        "1": "1 — Very Low (< 100 DM)",
+        "2": "2 — Low (100 – 500 DM)",
+        "3": "3 — Moderate (500 – 1000 DM)",
+        "4": "4 — High (≥ 1000 DM)",
+        "5": "5 — Unknown / No Savings"
+      },
+      "employmentSince": {
+        "1": "1 — Unemployed",
+        "2": "2 — < 1 Year",
+        "3": "3 — 1 – 4 Years",
+        "4": "4 — ≥ 4 Years"
+      },
+      "foreignWorker": {
+        "1": "Yes",
+        "2": "No"
+      },
+      "maritalStatus": {
+        "1": "Single",
+        "2": "Divorced",
+        "3": "Married",
+        "4": "Widowed"
+      },
+      "jobStatus": {
+        "1": "Unemployed / Unskilled",
+        "2": "Unskilled Worker",
+        "3": "Skilled Worker",
+        "4": "Official / Management"
+      },
+      "propertyMagnitude": {
+        "1": "Real Estate",
+        "2": "Building Society",
+        "3": "Car",
+        "4": "Unknown / No Property"
+      },
+      "otherPartyDebt": {
+        "1": "Yes",
+        "2": "No"
+      },
+      "housingStatus": {
+        "1": "Rent",
+        "2": "Own",
+        "3": "Free"
+      }
+    }
+  },
+  "validation": {
+    "fieldRequired": "This field is required",
+    "invalidNumber": "Please enter a valid number",
+    "minValue": "Value must be at least {min}",
+    "maxValue": "Value must not exceed {max}",
+    "emailInvalid": "Please enter a valid email address"
+  },
+  "prediction": {
+    "good": "Good",
+    "bad": "Bad",
+    "probability": "Probability",
+    "confidence": "Confidence",
+    "result": "Prediction Result",
+    "goodLoans": "Good Loans",
+    "badLoans": "Bad Loans",
+    "summary": "Based on your financial profile, your loan application is predicted as {prediction}.",
+    "goodMessage": "Your financial profile indicates strong likelihood of loan approval. You are considered a low-risk borrower.",
+    "badMessage": "Your financial profile indicates potential challenges in loan approval. You may be considered a higher-risk borrower.",
+    "disclaimer": "This prediction is based on historical data and machine learning models. Actual loan decisions are made by financial institutions and may differ from this prediction."
+  },
+  "apiError": {
+    "title": "API Error",
+    "message": "Failed to connect to prediction API",
+    "retry": "Please try again"
+  },
+  "messages": {
+    "predictionSuccess": "Prediction: {prediction} ({confidence}% confidence)",
+    "predictionFailed": "Prediction failed. Please try again."
+  }
+}
