@@ -1,0 +1,152 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Color Tokens ────────────────────────────────────────────── */
+    --background: 210 20% 98%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    /* Primary: Deep Slate Blue */
+    --primary: 221 70% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 92%;
+    --secondary-foreground: 220 25% 20%;
+
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 15% 48%;
+
+    --accent: 215 20% 90%;
+    --accent-foreground: 220 25% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 221 70% 36%;
+
+    --radius: 0.625rem;
+
+    /* Semantic: Good / Bad */
+    --good: 152 60% 32%;
+    --good-foreground: 0 0% 100%;
+    --good-muted: 152 50% 94%;
+
+    --bad: 0 72% 51%;
+    --bad-foreground: 0 0% 100%;
+    --bad-muted: 0 60% 95%;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────── */
+  .dark {
+    --background: 222 28% 8%;
+    --foreground: 215 20% 92%;
+
+    --card: 222 25% 11%;
+    --card-foreground: 215 20% 92%;
+
+    --popover: 222 25% 11%;
+    --popover-foreground: 215 20% 92%;
+
+    --primary: 221 70% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 215 20% 80%;
+
+    --muted: 215 20% 16%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 215 20% 18%;
+    --accent-foreground: 215 20% 90%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 221 70% 58%;
+
+    --good: 152 55% 45%;
+    --good-foreground: 0 0% 100%;
+    --good-muted: 152 30% 12%;
+
+    --bad: 0 65% 55%;
+    --bad-foreground: 0 0% 100%;
+    --bad-muted: 0 35% 12%;
+  }
+
+  /* ── Base Resets ───────────────────────────────────────────────── */
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-syne), sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* ── CSS Keyframes for progress bar (CSS custom property trick) ─── */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width, 0%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Utility: initial hidden state for staggered animations ──────── */
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
