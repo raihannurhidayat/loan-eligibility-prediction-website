@@ -6,6 +6,7 @@ import { RotateCcw, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FormField } from "@/components/FormField";
 import { PredictionResult } from "@/components/PredictionResult";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   FIELD_DEFINITIONS,
   DEFAULT_FORM_VALUES,
@@ -17,6 +18,7 @@ import type { FormValues, FormErrors, PredictResponse } from "@/types";
 import { cn } from "@/lib/utils";
 
 export function LoanForm() {
+  const { t } = useLanguage();
   const [values, setValues] = useState<FormValues>(DEFAULT_FORM_VALUES);
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
@@ -73,19 +75,24 @@ export function LoanForm() {
       const payload = mapFormToPayload(values);
       const response = await predictLoan(payload);
       setResult(response);
+      const confidence = Math.round(
+        (response.prediction_label === "Good"
+          ? response.probability_good
+          : response.probability_bad) * 100,
+      );
+      const predictionLabel =
+        response.prediction_label === "Good"
+          ? t.prediction.good
+          : t.prediction.bad;
       toast.success(
-        `Prediction: ${response.prediction_label} (${Math.round(
-          (response.prediction_label === "Good"
-            ? response.probability_good
-            : response.probability_bad) * 100
-        )}% confidence)`,
-        { duration: 4000 }
+        `${t.messages.predictionSuccess.replace("{prediction}", predictionLabel).replace("{confidence}", confidence.toString())}`,
+        { duration: 4000 },
       );
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "An unexpected error occurred.";
       setErrors({ api: message });
-      toast.error("Prediction failed. Please try again.");
+      toast.error(t.messages.predictionFailed);
     } finally {
       setLoading(false);
     }
@@ -103,10 +110,7 @@ export function LoanForm() {
         {/* Fields Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {FIELD_DEFINITIONS.map((field, i) => (
-            <div
-              key={field.key}
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
+            <div key={field.key} style={{ animationDelay: `${i * 80}ms` }}>
               <FormField
                 field={field}
                 value={values[field.key]}
@@ -125,9 +129,11 @@ export function LoanForm() {
             aria-live="assertive"
             className="mt-6 flex items-start gap-3 rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive animate-slide-in"
           >
-            <span className="mt-0.5 shrink-0 text-base" aria-hidden="true">⚠</span>
+            <span className="mt-0.5 shrink-0 text-base" aria-hidden="true">
+              ⚠
+            </span>
             <div>
-              <p className="font-semibold">API Error</p>
+              <p className="font-semibold">{t.apiError.title}</p>
               <p className="mt-0.5 text-destructive/80">{errors.api}</p>
             </div>
           </div>
@@ -145,7 +151,7 @@ export function LoanForm() {
             aria-label="Reset form to default values"
           >
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
-            Reset
+            {t.common.reset}
           </Button>
 
           <Button
@@ -154,12 +160,12 @@ export function LoanForm() {
             loading={loading}
             className={cn(
               "gap-2 min-w-[180px] font-semibold",
-              loading && "cursor-not-allowed"
+              loading && "cursor-not-allowed",
             )}
             aria-label="Submit prediction"
           >
             {!loading && <Send className="h-4 w-4" aria-hidden="true" />}
-            {loading ? "Predicting…" : "Predict Eligibility"}
+            {loading ? `${t.common.loading}` : t.common.submit}
           </Button>
         </div>
       </form>

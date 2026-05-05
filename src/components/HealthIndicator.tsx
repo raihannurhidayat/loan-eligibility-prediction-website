@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { Wifi, WifiOff, RefreshCw } from "lucide-react";
 import { checkHealth } from "@/lib/api";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { HealthResponse } from "@/types";
 import { cn } from "@/lib/utils";
 
 export function HealthIndicator() {
+  const { t } = useLanguage();
   const [health, setHealth] = useState<HealthResponse | null>(null);
   const [checking, setChecking] = useState(true);
 
@@ -45,13 +47,13 @@ export function HealthIndicator() {
               aria-hidden="true"
             />
             <Wifi className="h-3 w-3 text-good" />
-            <span className="text-good">API Online</span>
+            <span className="text-good">{t.header.apiOnline}</span>
           </>
         ) : (
           <>
             <span className="h-2 w-2 rounded-full bg-bad" aria-hidden="true" />
             <WifiOff className="h-3 w-3 text-bad" />
-            <span className="text-bad">API Offline</span>
+            <span className="text-bad">{t.header.apiOffline}</span>
           </>
         )}
       </button>

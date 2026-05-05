@@ -112,7 +112,7 @@ export const DEFAULT_FORM_VALUES: FormValues = FIELD_DEFINITIONS.reduce(
 // const API_BASE_URL =
 //   process.env.NEXT_PUBLIC_API_URL || "https://backend-theta-dusky.vercel.app";
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://backend-theta-dusky.vercel.app";
 
 export async function checkHealth(): Promise<HealthResponse> {
   try {

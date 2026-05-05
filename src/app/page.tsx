@@ -1,8 +1,13 @@
+"use client";
+
 import { HealthIndicator } from "@/components/HealthIndicator";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { LoanForm } from "@/components/LoanForm";
 import { ShieldCheck, Cpu } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-export default function Home() {
+function HomeContent() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       {/* ── Background texture ──────────────────────────────────── */}
@@ -27,19 +32,25 @@ export default function Home() {
 
       {/* ── Header ──────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-sm">
-        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6 gap-4">
           {/* Brand */}
           <div className="flex items-center gap-2.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <ShieldCheck className="h-4 w-4 text-primary-foreground" aria-hidden="true" />
+              <ShieldCheck
+                className="h-4 w-4 text-primary-foreground"
+                aria-hidden="true"
+              />
             </div>
             <span className="font-display text-base font-bold tracking-tight">
-              LoanCheck
+              {t.common.appName}
             </span>
           </div>
 
-          {/* API Status */}
-          <HealthIndicator />
+          {/* Controls */}
+          <div className="flex items-center gap-3 ml-auto">
+            <LanguageSwitcher />
+            <HealthIndicator />
+          </div>
         </div>
       </header>
 
@@ -52,13 +63,12 @@ export default function Home() {
             <span>AI-Powered Credit Assessment</span>
           </div>
           <h1 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Loan Eligibility
+            {t.hero.title}
             <br />
             <span className="text-primary">Prediction Tool</span>
           </h1>
           <p className="max-w-xl text-base text-muted-foreground leading-relaxed">
-            Enter the applicant&apos;s financial details below to instantly assess
-            loan eligibility using our Random Forest credit risk model.
+            {t.hero.description}
           </p>
         </div>
 
@@ -88,7 +98,8 @@ export default function Home() {
               Applicant Details
             </h2>
             <p className="mt-0.5 text-sm text-muted-foreground">
-              All 4 fields are required. Default values are provided for reference.
+              All 4 fields are required. Default values are provided for
+              reference.
             </p>
           </div>
 
@@ -100,10 +111,14 @@ export default function Home() {
 
         {/* Disclaimer footer */}
         <p className="mt-8 text-center text-xs text-muted-foreground opacity-0 animate-fade-in-delay-3">
-          This tool is for informational purposes only. Results do not constitute
-          formal financial or credit advice.
+          This tool is for informational purposes only. Results do not
+          constitute formal financial or credit advice.
         </p>
       </main>
     </div>
   );
+}
+
+export default function Home() {
+  return <HomeContent />;
 }

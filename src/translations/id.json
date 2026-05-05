@@ -1,0 +1,152 @@
+{
+  "common": {
+    "appName": "LoanCheck",
+    "reset": "Ulang",
+    "submit": "Prediksi Pinjaman",
+    "loading": "Memuat...",
+    "error": "Kesalahan",
+    "success": "Berhasil"
+  },
+  "header": {
+    "apiStatus": "Status API",
+    "apiOnline": "API Online",
+    "apiOffline": "API Offline"
+  },
+  "hero": {
+    "title": "Prediksi Kelayakan Pinjaman",
+    "description": "Prediksi kelayakan pinjaman Anda menggunakan machine learning. Masukkan detail keuangan Anda di bawah untuk mendapatkan prediksi."
+  },
+  "form": {
+    "labels": {
+      "accountBalance": "Saldo Rekening",
+      "durationOfCredit": "Durasi Kredit",
+      "valueSavingsStocks": "Nilai Tabungan / Saham",
+      "creditAmount": "Jumlah Kredit",
+      "ageInYears": "Usia (Tahun)",
+      "numberOfExistingCredits": "Jumlah Kredit yang Ada",
+      "employmentSince": "Bekerja Sejak",
+      "foreignWorker": "Pekerja Asing",
+      "installmentRate": "Tingkat Cicilan",
+      "maritalStatus": "Status Perkawinan",
+      "numberOfDependents": "Jumlah Tanggungan",
+      "jobStatus": "Status Pekerjaan",
+      "propertyMagnitude": "Besaran Properti",
+      "otherPartyDebt": "Hutang Pihak Lain",
+      "housingStatus": "Status Perumahan",
+      "yearsAtCurrentAddress": "Tahun di Alamat Saat Ini"
+    },
+    "placeholders": {
+      "durationOfCredit": "mis. 18",
+      "creditAmount": "mis. 2000",
+      "ageInYears": "mis. 35",
+      "numberOfExistingCredits": "mis. 2",
+      "installmentRate": "mis. 4",
+      "numberOfDependents": "mis. 1",
+      "yearsAtCurrentAddress": "mis. 3"
+    },
+    "units": {
+      "months": "bulan",
+      "dm": "DM",
+      "percentage": "%"
+    },
+    "descriptions": {
+      "accountBalance": "Status rekening giro pemohon berdasarkan saldo saat ini.",
+      "durationOfCredit": "Periode pembayaran kembali pinjaman yang diminta dalam bulan.",
+      "valueSavingsStocks": "Nilai total rekening tabungan dan/atau saham yang dimiliki pemohon.",
+      "creditAmount": "Jumlah total pinjaman yang diminta oleh pemohon.",
+      "ageInYears": "Usia pemohon dalam tahun pada saat aplikasi.",
+      "numberOfExistingCredits": "Jumlah akun kredit aktif yang dimiliki pemohon.",
+      "employmentSince": "Tahun pemohon bekerja di posisi pekerjaan saat ini.",
+      "foreignWorker": "Apakah pemohon adalah pekerja asing atau penduduk nasional.",
+      "installmentRate": "Rasio cicilan bulanan terhadap pendapatan tahunan yang dapat dibuang.",
+      "maritalStatus": "Status perkawinan saat ini pemohon.",
+      "numberOfDependents": "Jumlah tanggungan untuk keperluan pajak.",
+      "jobStatus": "Klasifikasi status pekerjaan pemohon.",
+      "propertyMagnitude": "Kepemilikan rumah dan klasifikasi nilai properti pemohon.",
+      "otherPartyDebt": "Apakah pemohon adalah penjamin untuk hutang orang lain.",
+      "housingStatus": "Status kepemilikan perumahan saat ini (sewa, milik, gratis).",
+      "yearsAtCurrentAddress": "Lamanya pemohon tinggal di alamat saat ini."
+    },
+    "options": {
+      "accountBalance": {
+        "1": "1 — Negatif (< 0 DM)",
+        "2": "2 — Rendah (0 – 200 DM)",
+        "3": "3 — Stabil (≥ 200 DM / Gaji)",
+        "4": "4 — Tidak Ada Rekening"
+      },
+      "valueSavingsStocks": {
+        "1": "1 — Sangat Rendah (< 100 DM)",
+        "2": "2 — Rendah (100 – 500 DM)",
+        "3": "3 — Sedang (500 – 1000 DM)",
+        "4": "4 — Tinggi (≥ 1000 DM)",
+        "5": "5 — Tidak Diketahui / Tanpa Tabungan"
+      },
+      "employmentSince": {
+        "1": "1 — Menganggur",
+        "2": "2 — < 1 Tahun",
+        "3": "3 — 1 – 4 Tahun",
+        "4": "4 — ≥ 4 Tahun"
+      },
+      "foreignWorker": {
+        "1": "Ya",
+        "2": "Tidak"
+      },
+      "maritalStatus": {
+        "1": "Lajang",
+        "2": "Bercerai",
+        "3": "Menikah",
+        "4": "Janda"
+      },
+      "jobStatus": {
+        "1": "Menganggur / Tidak Terampil",
+        "2": "Pekerja Tidak Terampil",
+        "3": "Pekerja Terampil",
+        "4": "Pejabat / Manajemen"
+      },
+      "propertyMagnitude": {
+        "1": "Real Estat",
+        "2": "Asosiasi Pembangunan",
+        "3": "Mobil",
+        "4": "Tidak Diketahui / Tanpa Properti"
+      },
+      "otherPartyDebt": {
+        "1": "Ya",
+        "2": "Tidak"
+      },
+      "housingStatus": {
+        "1": "Sewa",
+        "2": "Milik",
+        "3": "Gratis"
+      }
+    }
+  },
+  "validation": {
+    "fieldRequired": "Bidang ini wajib diisi",
+    "invalidNumber": "Silakan masukkan angka yang valid",
+    "minValue": "Nilai harus minimal {min}",
+    "maxValue": "Nilai tidak boleh melebihi {max}",
+    "emailInvalid": "Silakan masukkan alamat email yang valid"
+  },
+  "prediction": {
+    "good": "Baik",
+    "bad": "Buruk",
+    "probability": "Probabilitas",
+    "confidence": "Kepercayaan",
+    "result": "Hasil Prediksi",
+    "goodLoans": "Pinjaman Baik",
+    "badLoans": "Pinjaman Buruk",
+    "summary": "Berdasarkan profil keuangan Anda, aplikasi pinjaman Anda diprediksi sebagai {prediction}.",
+    "goodMessage": "Profil keuangan Anda menunjukkan kemungkinan tinggi persetujuan pinjaman. Anda dianggap peminjam berisiko rendah.",
+    "badMessage": "Profil keuangan Anda menunjukkan tantangan potensial dalam persetujuan pinjaman. Anda mungkin dianggap peminjam berisiko lebih tinggi.",
+    "disclaimer": "Prediksi ini didasarkan pada data historis dan model pembelajaran mesin. Keputusan pinjaman sebenarnya dibuat oleh lembaga keuangan dan dapat berbeda dari prediksi ini."
+  },
+  "apiError": {
+    "title": "Kesalahan API",
+    "message": "Gagal terhubung ke API prediksi",
+    "retry": "Silakan coba lagi"
+  },
+  "messages": {
+    "predictionSuccess": "Prediksi: {prediction} ({confidence}% kepercayaan)",
+    "predictionFailed": "Prediksi gagal. Silakan coba lagi."
+  }
+}
